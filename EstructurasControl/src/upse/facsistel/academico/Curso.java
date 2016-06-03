@@ -42,6 +42,11 @@ public class Curso {
 	public ArrayList<Estudiante> getListaEstudiantes() {
 		return listaEstudiantes;
 	}
+	
+	public void imprimirListaEstudiantes()
+	{
+		System.out.println(listaEstudiantes);
+	}
 
 	
 }
