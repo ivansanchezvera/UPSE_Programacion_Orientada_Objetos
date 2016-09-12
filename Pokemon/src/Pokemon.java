@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public abstract class Pokemon {
+public abstract class Pokemon implements Comparable<Pokemon> {
 	protected String nombre;
 	protected float peso;
 	protected float altura;
@@ -107,5 +107,68 @@ public abstract class Pokemon {
 
 	public int getPuntosCombate() {
 		return puntosCombate;
+	}
+	
+	@Override
+	public int compareTo(Pokemon otroPokemon) {
+		
+		if(this.getHp()<otroPokemon.getHp())
+		{
+			return -1;
+		}else if(this.getHp()>otroPokemon.getHp())
+		{
+			return +1;
+		}
+
+		return 0;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Float.floatToIntBits(altura);
+		result = prime * result + hp;
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((nombreEvolucion == null) ? 0 : nombreEvolucion.hashCode());
+		result = prime * result + Float.floatToIntBits(peso);
+		result = prime * result + puntosCombate;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pokemon other = (Pokemon) obj;
+		if (Float.floatToIntBits(altura) != Float.floatToIntBits(other.altura))
+			return false;
+		if (hp != other.hp)
+			return false;
+		if (nombre == null) {
+			if (other.nombre != null)
+				return false;
+		} else if (!nombre.equals(other.nombre))
+			return false;
+		if (nombreEvolucion == null) {
+			if (other.nombreEvolucion != null)
+				return false;
+		} else if (!nombreEvolucion.equals(other.nombreEvolucion))
+			return false;
+		if (Float.floatToIntBits(peso) != Float.floatToIntBits(other.peso))
+			return false;
+		if (puntosCombate != other.puntosCombate)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Pokemon [nombre=" + nombre + ", peso=" + peso + ", altura=" + altura + ", hp=" + hp + ", puntosCombate="
+				+ puntosCombate + ", nombreEvolucion=" + nombreEvolucion + "]\n";
 	}
 }

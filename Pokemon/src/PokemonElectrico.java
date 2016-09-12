@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class PokemonElectrico extends Pokemon {
+public class PokemonElectrico extends Pokemon implements GraficosJuego{
 
 	public PokemonElectrico(String nombre, float peso, float altura, int hp, int puntosCombate,
 			String nombreEvolucion) {
@@ -43,4 +43,26 @@ public class PokemonElectrico extends Pokemon {
 		return poderAtaque;
 	}
 
+	@Override
+	public void dibujar() {
+		String pokemonADibujar = "*****PIKACHU*******\n	"
++ "		▕▔╲┊┊┊┊┊┊┊╱▔▏┊┊┊	\n"				
++ "		┊╲╱╲┊┊┊┊┊╱╲╱┊┊┊┊ 	\n"
++ "		┊┊╲┈╲▂▂▂╱┈╱┊┊┊╱╲	\n"
++ "		┊┊╱┈┈┈┈┈┈┈╲┊┊╱┈┈╲	\n"
++ "		┊┊▏▕▆▍▂▕▆▍▕┊╱┈┈┈╱	\n"
++ "		┊▕╭╮┈┳┻┳┈╭╮▏╲┈┈╱		\n"
++ "		┊┊╲╯┈╰━╯┈╰╱┊╱┈┈╲	\n"
++ "		┊┊╱┈┈┈┈┈┈┈╲┊╲┈┈┈╲	\n"
++ "		┊▕╲┈▕┈┈┈▏┈╱▏┊╱┈╱	\n"
++ "		┊▕┈▔▔┈┈┈▔▔┈▏╱┈╱┊	\n"
++ "		┊▕┈┈┈┈┈┈┈┈▕▔┈╱┊┊		\n"
++ "		┈┈╲┈┈┈┈┈┈┈╱▔▔┈┈┈		\n"
++ "		┈┈▕▂╱▔▔▔╲▂▏┈┈┈┈┈";		
+		
+		
+		System.out.println(pokemonADibujar);
+	}
+
+	
 }
